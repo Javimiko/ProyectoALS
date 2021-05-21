@@ -1,0 +1,53 @@
+application: proyecto
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /
+  script: handlers.main.app
+
+- url: /materias/nueva
+  script: handlers.materias.nueva.app
+  login: admin
+
+- url: /materias/elimina
+  script: handlers.materias.elimina.app
+  login: admin
+
+- url: /profesores/lista
+  script: handlers.profesores.lista.app
+  login: required
+
+- url: /profesores/nuevo
+  script: handlers.profesores.nuevo.app
+  login: admin
+
+- url: /profesores/elimina
+  script: handlers.profesores.elimina.app
+  login: admin
+
+
+- url: /estudiantes/lista
+  script: handlers.estudiantes.lista.app
+  login: required
+
+- url: /estudiantes/nuevo
+  script: handlers.estudiantes.nuevo.app
+  login: admin
+
+- url: /estudiantes/elimina
+  script: handlers.estudiantes.elimina.app
+  login: admin
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+
+- name: jinja2
+  version: "latest"

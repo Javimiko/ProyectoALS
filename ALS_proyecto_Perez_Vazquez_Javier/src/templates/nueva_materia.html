@@ -1,0 +1,53 @@
+
+{% extends "esqueleto.html" %}
+
+{% block contenido %}
+    <h1>Nueva Materia</h1>
+    <form id="frmNuevaMateria"
+            method="post"
+            action="/materias/nueva"
+            onsubmit="return check()">
+
+        <p>
+        <label for="cuatri">Cuatrimestre</label>
+        <select type=number"  id="cuatri"  name="cuatri">
+             <option value="1">1</option>
+             <option value="2">2</option>
+
+            </select>
+
+        </p>
+
+
+        <p>
+        <label for="carrera">Curso</label>
+        <input type=text"  id="curso"  name="curso"
+                placeholder="Curso" />
+        </p>
+        <p>
+        <label for="nombreMateria">Materia</label>
+        <input type=text"  id="nombreMateria"  name="nombreMateria"
+                placeholder="Materia" />
+        </p>
+        <p><input type="submit" value="Añadir"></p>
+
+    </form>
+
+
+    <script>
+       function check()
+       {
+           const cuatri = document.getElementById("cuatri");
+           const nombreMateria = document.getElementById("nombreMateria");
+           const curso = document.getElementById("curso");
+
+           return (cuatri.value.trim().length > 0
+           && nombreMateria.value.trim().length > 0
+           && curso.value.trim().length > 0)
+
+       }
+
+
+    </script>
+
+{% endblock %}

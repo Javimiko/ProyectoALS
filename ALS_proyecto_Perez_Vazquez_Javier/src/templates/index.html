@@ -1,0 +1,26 @@
+{% extends "esqueleto.html" %}
+
+{% block contenido %}
+    <h2>Materias </h2>
+
+     {% if materias.count() > 0 %}
+        {% for materia in materias %}
+
+            {% if usr %}
+                (<a href="/materias/elimina?id={{ materia.key.urlsafe()}}">Eliminar Materia</a>
+                (<a href="/profesores/lista?mat={{ materia.key.urlsafe()}}">Profesores</a>)
+                (<a href="/estudiantes/lista?mat={{ materia.key.urlsafe()}}">Estudiantes</a>)
+            {% endif %}
+            {% include "entrada_materia.html" %}
+            <br>
+        {% endfor %}
+     {% else %}
+            <p><b>No hay materias registradas en la base de datos</b></p>
+     {% endif %}
+
+
+
+    <p>
+        <a href="/materias/nueva">Añadir materia</a>
+    </p>
+{% endblock %}

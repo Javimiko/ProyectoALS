@@ -1,0 +1,50 @@
+
+{% extends "esqueleto.html" %}
+
+{% block contenido %}
+    <h1>Nuevo Estudiante</h1>
+    <form id="frmNuevoEstudiante"
+            method="post"
+            action="/estudiantes/nuevo?mat={{clave_materia}}"
+            onsubmit="return check()">
+
+        <p>
+        <label for="dni_estudiante">DNI</label>
+        <input type=text"  id="dni_estudiante"  name="dni_estudiante"
+                placeholder="DNI" />
+        </p>
+
+
+        <p>
+        <label for="nombre_estudiante">Nombre</label>
+        <input type=text"  id="nombre_estudiante"  name="nombre_estudiante"
+                placeholder="Nombre" />
+        </p>
+        <p>
+        <label for="apellidos_estudiante">Apellidos</label>
+        <input type=text"  id="apellidos_estudiante"  name="apellidos_estudiante"
+                placeholder="Apellidos" />
+        </p>
+
+        <p><input type="submit" value="Añadir"></p>
+
+    </form>
+
+
+    <script>
+       function check()
+       {
+           const dni_estudiante = document.getElementById("dni_estudiante");
+           const nombre_estudiante = document.getElementById("nombre_estudiante");
+           const apellidos_estudiante = document.getElementById("apellidos_estudiante");
+
+           return (dni_estudiante.value.trim().length > 0
+           && nombre_estudiante.value.trim().length > 0
+           && apellidos_estudiante.value.trim().length > 0)
+
+       }
+
+
+    </script>
+
+{% endblock %}

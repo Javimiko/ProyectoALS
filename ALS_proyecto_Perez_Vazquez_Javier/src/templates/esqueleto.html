@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Base-Academia</title>
+</head>
+<body>
+    {% if usr %}
+        Usuario identificado
+     <a href="{{ url_usr}}">Logout</a>
+    {% else %}
+        Solo los usuarios logeados pueden visualizar la lista de alumnos y profesores
+         <a href="{{ url_usr}}">Login</a>
+    {% endif %}
+
+    <h1>Base-Academia</h1>
+
+
+    {% block contenido %} {% endblock %}
+    <p>Hecho por Javier Pérez Vázquez</p>
+
+</body>
+</html>

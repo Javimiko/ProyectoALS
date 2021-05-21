@@ -1,0 +1,25 @@
+
+
+
+{% extends "esqueleto.html" %}
+
+{% block contenido %}
+    <h2>Profesores </h2>
+<h3>{{ materia.nombreMateria  }} </h3>
+
+     {% if profesores.count() > 0 %}
+        {% for profesor in profesores %}
+            (<a href="/profesores/elimina?id={{ profesor.key.urlsafe()}}">Eliminar Profesor</a>
+            {% include "entrada_profesor.html" %}
+            <br>
+        {% endfor %}
+     {% else %}
+            <p><b>No hay profesores registrados en la base de datos</b></p>
+     {% endif %}
+
+
+
+    <p>
+        <a href="/profesores/nuevo?mat={{materia.key.urlsafe()}}">Añadir profesor</a>
+    </p>
+{% endblock %}

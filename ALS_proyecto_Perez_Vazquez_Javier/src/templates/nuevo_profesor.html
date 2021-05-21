@@ -1,0 +1,50 @@
+
+{% extends "esqueleto.html" %}
+
+{% block contenido %}
+    <h1>Nuevo Profesor</h1>
+    <form id="frmNuevoProfesor"
+            method="post"
+            action="/profesores/nuevo?mat={{clave_materia}}"
+            onsubmit="return check()">
+
+        <p>
+        <label for="dni_profesor">DNI</label>
+        <input type=text"  id="dni_profesor"  name="dni_profesor"
+                placeholder="DNI" />
+        </p>
+
+
+        <p>
+        <label for="nombre_profesor">Nombre</label>
+        <input type=text"  id="nombre_profesor"  name="nombre_profesor"
+                placeholder="Nombre" />
+        </p>
+        <p>
+        <label for="apellidos_profesor">Apellidos</label>
+        <input type=text"  id="apellidos_profesor"  name="apellidos_profesor"
+                placeholder="Apellidos" />
+        </p>
+
+        <p><input type="submit" value="Añadir"></p>
+
+    </form>
+
+
+    <script>
+       function check()
+       {
+           const dni_profesor = document.getElementById("dni_profesor");
+           const nombre_profesor = document.getElementById("nombre_profesor");
+           const apellidos_profesor = document.getElementById("apellidos_profesor");
+
+           return (dni_profesor.value.trim().length > 0
+           && nombre_profesor.value.trim().length > 0
+           && apellidos_profesor.value.trim().length > 0)
+
+       }
+
+
+    </script>
+
+{% endblock %}
